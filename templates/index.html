@@ -1,0 +1,51 @@
+<!-- Оголошення типу документа: каже браузеру, що це сучасний HTML5-документ -->
+<!DOCTYPE html>
+<!-- Кореневий тег сторінки, lang="uk" вказує мову сторінки - українську -->
+<html lang="uk">
+<!-- Тег head містить службову інформацію, яка НЕ показується на самій сторінці -->
+<head>
+    <!-- Вказуємо кодування символів, щоб українські літери відображались правильно -->
+    <meta charset="UTF-8">
+    <!-- Налаштування для коректного відображення на мобільних пристроях -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Заголовок сторінки, який видно у вкладці браузера -->
+    <title>Python + HTML + CSS + JS</title>
+    <!-- Підключаємо файл стилів CSS.
+         url_for - спеціальна функція Flask, яка сама будує правильний шлях до файлу -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<!-- Тег body містить весь видимий вміст сторінки -->
+<body>
+    <!-- div - контейнер (блок), клас "container" для стилізації в CSS -->
+    <div class="container">
+        <!-- Заголовок першого рівня (найбільший і найважливіший) -->
+        <h1>Приклад застосунку</h1>
+        <!-- Звичайний абзац тексту з класом для стилізації -->
+        <p class="subtitle">Flask (Python) &rarr; HTML &rarr; CSS &rarr; JavaScript</p>
+
+        <!-- Блок-картка, в якій буде наш лічильник -->
+        <div class="counter-card">
+            <!-- Підпис над числом -->
+            <p class="counter-label">Лічильник:</p>
+            <!-- id="counter-value" - унікальний ідентифікатор, за яким JavaScript
+                 знайде цей елемент і зможе змінювати число всередині -->
+            <p id="counter-value" class="counter-value">0</p>
+
+            <!-- Контейнер для кнопок -->
+            <div class="buttons">
+                <!-- Кнопка "плюс 1", id потрібен, щоб JavaScript "почув" клік по ній -->
+                <button id="increment-btn" class="btn btn-primary">+1</button>
+                <!-- Кнопка скидання лічильника -->
+                <button id="reset-btn" class="btn btn-secondary">Скинути</button>
+            </div>
+
+            <!-- Порожній абзац для тимчасових повідомлень (наприклад "Оновлено ✓") -->
+            <p id="status" class="status"></p>
+        </div>
+    </div>
+
+    <!-- Підключаємо наш файл JavaScript в самому кінці body,
+         щоб спочатку завантажилась вся сторінка, а вже потім скрипт -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
